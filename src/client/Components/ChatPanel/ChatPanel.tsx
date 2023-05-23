@@ -38,12 +38,13 @@ const ChatPanel = () => {
     const selectedUser: any = users!.filter(
       (user: User) => user.username === userData.name
     );
-    console.log("selectedUser", selectedUser);
+
     const newMessageObj: Message = {
       id: 0,
       text: newMessage,
       channelId: selectedChannel!,
       userId: selectedUser[0].id,
+      author: selectedUser[0].username,
       created: new Date(),
     };
 
@@ -51,6 +52,7 @@ const ChatPanel = () => {
       text: newMessage,
       channelId: selectedChannel!,
       userId: selectedUser[0].id,
+      author: selectedUser[0].username,
     });
     setNewMessage("");
   };
