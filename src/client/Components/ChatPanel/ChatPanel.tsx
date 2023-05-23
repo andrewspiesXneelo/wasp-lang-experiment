@@ -22,12 +22,6 @@ const ChatPanel = () => {
     channelId: selectedChannel!,
   });
 
-  // if (user) {
-  //   const { data: messages, error: messsagesError } = useQuery(getMessages, {
-  //     userId: user[0].id,
-  //   });
-  // }
-
   const getChannelMessages = (id: number) => {
     setSelectedChannel(id);
   };
