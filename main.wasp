@@ -1,0 +1,101 @@
+app playground {
+  wasp: {
+    version: "^0.10.4"
+  },
+  title: "WASP Chat App",
+  emailSender: {
+    provider: SMTP,
+  },
+  db: { system: PostgreSQL },
+  server: {
+    setupFn: import logEnvs from "@server/setup.js"
+  },
+  dependencies: [
+    ("encrypt-storage", "^2.12.16"),
+    ("@types/node", "^18.11.9")
+  ],
+}
+
+// Entities
+entity User {=psl  
+  id          Int @id @default(autoincrement())
+  username    String
+  code        String
+  channelIds  Int[]?
+  messageIds  Int[]?
+  created     DateTime @default(now())
+psl=}
+
+entity Message {=psl
+  id          Int @id @default(autoincrement())
+  text        String
+  channelId   Int
+  userId      Int
+  author      String
+  created     DateTime @default(now())
+psl=}
+
+entity Channel {=psl
+  id          Int @id @default(autoincrement())
+  name        String
+  userIds     Int[]
+  messageIds  Int[]
+  created     DateTime @default(now())
+psl=}
+
+entity Code {=psl 
+  id          Int @id @default(autoincrement())
+  code        String
+  created     DateTime @default(now())
+psl=}
+
+// Actions
+action sendChatInvite {
+  fn: import { sendChatInvite } from "@server/Actions/SendInvite.js"
+}
+
+action storeMessage {
+  fn: import { storeMessage } from "@server/Actions/Messages.js",
+  entities: [Message]
+} 
+
+action createChannel {
+  fn: import { createChannel } from "@server/Actions/Channels.js",
+  entities: [Channel]
+}
+
+action createUser {
+  fn: import { createUser } from "@server/Actions/Users.js",
+  entities: [User]
+}
+
+// Queries
+query getMessages {
+  fn: import { getMessages } from "@server/Queries/Messages.js",
+  entities: [Message]
+}
+
+query getChannels {
+  fn: import { getChannels } from "@server/Queries/Channels.js",
+  entities: [Channel]
+}
+
+query getUsers {
+  fn: import { getUsers } from "@server/Queries/Users.js",
+  entities: [User]
+}
+
+query getCodes {
+  fn: import { getCodes } from "@server/Queries/Codes.js",
+  entities: [Code]
+}
+
+// Routes & Pages
+route SplashRoute { path: "/", to: SplashPage }
+page SplashPage {
+  component: import Splash from "@client/Pages/Splash/SplashPage"
+}
+route ChatRoute { path: "/chat", to: ChatPage }
+page ChatPage {
+  component: import Chat from "@client/Pages/Chat/ChatPage"
+}

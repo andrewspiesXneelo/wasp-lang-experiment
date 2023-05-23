@@ -1,0 +1,28 @@
+.message__panel {
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+.message {
+  display: block;
+  width: 50%;
+  background-color: #3aa0c2;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 10px;
+}
+.message__author {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.message__timestamp {
+  font-size: 0.5rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.message__content {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}

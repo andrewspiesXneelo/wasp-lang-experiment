@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.invite__button,
+.connect__button {
+  position: relative;
+  height: 36px;
+  width: 120px;
+  margin-left: 10px;
+  background-color: #3aa0c2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.invite__button:hover,
+.connect__button:hover {
+  background-color: #276a81;
+}
+
+.invite__button:active,
+.connect__button:active {
+  background-color: #1b4e5d;
+}
+
+.invite__panel_container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  z-index: 997;
+}
+
+.invite__panel__overlay {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.6;
+  z-index: 998;
+}

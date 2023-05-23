@@ -1,0 +1,83 @@
+.login__panel {
+  background-color: #fff;
+  position: absolute;
+  display: block;
+  left: 40%;
+  top: 200px;
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  z-index: 999;
+}
+.login__panel_header {
+  font-size: 0.9rem;
+  text-align: center;
+}
+.close__button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 20px;
+  width: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.login__panel_body form label {
+  display: block;
+  margin: 10px 0;
+}
+.login__panel_body form input {
+  display: block;
+  padding: 8px 10px;
+  width: 100%;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.login__panel_body form button {
+  display: block;
+  margin: 10px 0;
+  padding: 8px 10px;
+  background-color: #3aa0c2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  float: right;
+}
+.login__panel_body form button:hover {
+  background-color: #276a81;
+}
+.login__panel_body form button:active {
+  background-color: #1b4e5d;
+}
+.login__panel_body form button::after {
+  clear: both;
+  content: "";
+  display: block;
+  width: 100%;
+}
+.login__panel_body form button:disabled,
+.login__panel_body form button[disabled] {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+.login__panel_loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+}
+.login__panel_loader p {
+  margin-top: 100px;
+}
